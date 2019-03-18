@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+ <title> Aibnb Graphs </title>
+ <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Airbnb Graphs</a>
+        </div>
+
+ 
+        <!-- Top Navigation: Left Menu -->
+        <ul class="nav navbar-nav navbar-left navbar-top-links">
+            <li><a href="#"><i class="fa fa-home fa-fw"></i> Website</a></li>
+        </ul>
+		</nav>
+	 <div id="page-wrapper">	
+<div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
+
+<div id="myHistogram"><!-- Plotly chart will be drawn inside this DIV --></div>
+
+<script
+type = "text/javascript" src="Airbnb.js"> // kopplling till js filen
+</script>
+
+<script>
+         var prices = [];
+         for (i=0; i < Airbnb.length; i++) {
+         console.log(Airbnb[i].price)
+         prices.push (Airbnb[i].price)
+      }
+	  
+	   var reviews = [];
+         for (i=0; i < Airbnb.length; i++) {
+         console.log(Airbnb[i].reviews)
+         reviews.push (Airbnb[i].reviews)
+      }
+	  
+	  
+	  var last_modified = [];
+         for (i=0; i < Airbnb.length; i++) {
+         console.log(Airbnb[i].last_modified)
+         last_modified.push (Airbnb[i].last_modified)
+      }
+
+	  var priceRev = {
+           x: prices,
+           y: reviews,
+           mode: 'markers',
+           type: 'scatter'};
+
+           var data = [priceRev];
+
+	
+Plotly.newPlot('myDiv', data);
+
+
+var histogram = {
+           x: prices,
+           y: last_modified,
+           type: 'bar'};
+		   
+
+           var data = [histogram];
+
+Plotly.newPlot('myHistogram', data);
+
+</script>
+
+</body>
+</html>
