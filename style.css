@@ -1,0 +1,43 @@
+*{
+    padding:0;
+    margin: 0;
+
+}
+
+body 
+
+{
+
+	background-color: burlywood;
+
+}
+
+#myDiv {
+    width: 1000px;
+    height: 400px;
+    padding: 50px;
+  }
+
+  #myHistogram {
+    width: 1000px;
+    height: 400px;
+    padding: 50px;
+  
+  
+
+  }
+
+  #gästerHistogram {
+    width: 1000px;
+    height: 400px;
+    padding: 50px;
+  }
+
+  #piechart {
+    width: 1000px;
+    height: 400px;
+    padding: 50px;
+  }
+
+
+  
