@@ -5,6 +5,7 @@
  <meta http-equiv="X-UA-Compatible" content="ie=edge">
  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
  <title> Aibnb Graphs </title>
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <h2>Airbnb Graphs</h2>
@@ -47,6 +48,7 @@ type = "text/javascript" src="Airbnb.js"> // kopplling till js filen
 
 
 /*Scatter price vs reviews*/
+
        var priceRev = {
            x: prices,
            y: reviews,
@@ -55,12 +57,14 @@ type = "text/javascript" src="Airbnb.js"> // kopplling till js filen
 
            var data = [priceRev];
 
-Plotly.newPlot('myDiv', data);
+          
+         
+Plotly.newPlot('myDiv', data, priceRev);
 
 
 
   
-/*Histogram of retprices*/
+/*Histogram of rentprices*/
 var histogram = {
           x: prices,
          type: 'histogram'};
@@ -70,7 +74,7 @@ var histogram = {
 Plotly.newPlot('myHistogram', data);
 
 
-/*Histogram of count accommodates*/
+/*Histogram of count accommodates*/ 
 var histogram2 = {
           x: accommodates,
         
@@ -86,11 +90,8 @@ var data_pie = [{
    labels: room_type,
    type: 'pie'
  }];
- var layout = {
-   height: 400,
-   width: 500
- };
- Plotly.newPlot('piechart', data_pie, layout)
+ 
+ Plotly.newPlot('piechart', data_pie)
 </script>
 
 
