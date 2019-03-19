@@ -1,0 +1,115 @@
+﻿<html lang="">
+<head>
+ <meta charset="iso-8859-1"> 
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+ <title> Aibnb Graphs </title>
+ <link href="style.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="external">
+  <div id="logo">
+    <div>
+      <h1><a href="Airbnb.html">Aibnb Graphs </a></h1>
+    </div>
+  </div>
+  <ul id="menu">
+    <li><a href="Airbnb.html">Home</a></li>
+  </ul>
+  <div id="main">
+    <div class="sidebar">
+      <h2>Team</h2>
+      <ul>
+        <li><a href="https://www.linkedin.com/in/kalapna-khatri/">Kalapna Khatri </a></li>
+        <li><a href="https://www.linkedin.com/in/cecilijka/">Cecilia Sobocinska</a></li>
+      </ul>
+    </div>
+    <div class="content">
+     <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
+	 <h4>Pris och recensioner </h4>
+        <div id="myHistogram"><!-- Plotly chart will be drawn inside this DIV --></div>
+	 <h4>Spridningen på hyrespriserna </h4>
+        <div id="gĂ¤sterHistogram"><!-- Plotly chart will be drawn inside this DIV --></div>
+	 <h4>Spridningen på antalet gaster</h4>
+        <div id="piechart"><!-- Plotly chart will be drawn inside this DIV --></div>
+		<h4>Andel procent av varje typ av rum </h4>
+		</div>
+      
+    </div>
+  </div>
+  <div id="footer">
+         All rights reserved | This template is made with <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet"/>
+			<i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="www.linkedin.com" target="_blank">Kalapna & Cecilia</a>
+  </div>
+  <div class="clear"></div>
+</div>
+
+</body>
+	
+<script
+type = "text/javascript" src="Airbnb.js"> // kopplling till js filen
+</script>
+
+<script>
+         var prices = [];
+         for (i=0; i < Airbnb.length; i++) {
+         console.log(Airbnb[i].price)
+         prices.push (Airbnb[i].price)
+      }
+      var reviews = [];
+         for (i=0; i < Airbnb.length; i++) {
+         console.log(Airbnb[i].reviews)
+         reviews.push (Airbnb[i].reviews)
+      }
+     var accommodates = [];
+         for (i=0; i < Airbnb.length; i++) {
+         console.log(Airbnb[i].accommodates)
+         accommodates.push (Airbnb[i].accommodates)
+      }
+      var room_type  = [];
+         for (i=0; i < Airbnb.length; i++) {
+         console.log(Airbnb[i].room_type)
+         room_type.push (Airbnb[i].room_type)
+      }
+/*Scatter price vs reviews*/
+       var priceRev = {
+           x: prices,
+           y: reviews,
+           mode: 'markers',
+           type: 'scatter'}
+           var data = [priceRev];
+Plotly.newPlot('myDiv', data);
+  
+/*Histogram of retprices*/
+var histogram = {
+          x: prices,
+         type: 'histogram'};
+          var data = [histogram];
+Plotly.newPlot('myHistogram', data);
+/*Histogram of count accommodates*/
+var histogram2 = {
+          x: accommodates,
+        
+          type: 'histogram'};
+          var data = [histogram2];
+Plotly.newPlot('gĂ¤sterHistogram', data);
+/* Pie chart of room_type*/
+var data_pie = [{
+   values: accommodates,
+   labels: room_type,
+   type: 'pie'
+ }];
+ var layout = {
+   height: 400,
+   width: 500
+ };
+ Plotly.newPlot('piechart', data_pie, layout)
+</script>
+
+
+
+
+</body>
+</html>
