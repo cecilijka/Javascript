@@ -1,0 +1,100 @@
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+ <title> Aibnb Graphs </title>
+</head>
+<body>
+    <h2>Airbnb Graphs</h2>
+        <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
+        <div id="myHistogram"><!-- Plotly chart will be drawn inside this DIV --></div>
+        <div id="gästerHistogram"><!-- Plotly chart will be drawn inside this DIV --></div>
+        <div id="piechart"><!-- Plotly chart will be drawn inside this DIV --></div>
+
+
+
+<script
+type = "text/javascript" src="Airbnb.js"> // kopplling till js filen
+</script>
+
+<script>
+         var prices = [];
+         for (i=0; i < Airbnb.length; i++) {
+         console.log(Airbnb[i].price)
+         prices.push (Airbnb[i].price)
+      }
+
+      var reviews = [];
+         for (i=0; i < Airbnb.length; i++) {
+         console.log(Airbnb[i].reviews)
+         reviews.push (Airbnb[i].reviews)
+      }
+
+
+     var accommodates = [];
+         for (i=0; i < Airbnb.length; i++) {
+         console.log(Airbnb[i].accommodates)
+         accommodates.push (Airbnb[i].accommodates)
+      }
+
+      var room_type  = [];
+         for (i=0; i < Airbnb.length; i++) {
+         console.log(Airbnb[i].room_type)
+         room_type.push (Airbnb[i].room_type)
+      }
+
+
+/*Scatter price vs reviews*/
+       var priceRev = {
+           x: prices,
+           y: reviews,
+           mode: 'markers',
+           type: 'scatter'};
+
+           var data = [priceRev];
+
+Plotly.newPlot('myDiv', data);
+
+
+
+  
+/*Histogram of retprices*/
+var histogram = {
+          x: prices,
+         type: 'histogram'};
+
+          var data = [histogram];
+
+Plotly.newPlot('myHistogram', data);
+
+
+/*Histogram of count accommodates*/
+var histogram2 = {
+          x: accommodates,
+        
+          type: 'histogram'};
+
+          var data = [histogram2];
+
+Plotly.newPlot('gästerHistogram', data);
+
+/* Pie chart of room_type*/
+var data_pie = [{
+   values: accommodates,
+   labels: room_type,
+   type: 'pie'
+ }];
+ var layout = {
+   height: 400,
+   width: 500
+ };
+ Plotly.newPlot('piechart', data_pie, layout)
+</script>
+
+
+
+
+</body>
+</html>
