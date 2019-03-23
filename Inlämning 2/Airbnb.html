@@ -80,21 +80,36 @@ type = "text/javascript" src="Airbnb.js"> // kopplling till js filen
            mode: 'markers',
            type: 'scatter'}
            var data = [priceRev];
-Plotly.newPlot('myDiv', data);
+		   var layout = {
+			xaxis: {title: 'Priser'}, 
+			yaxis: {title: 'Recensioner'}
+			};
+
+Plotly.newPlot('myDiv', data, layout);
   
 /*Histogram of retprices*/
 var histogram = {
           x: prices,
          type: 'histogram'};
           var data = [histogram];
-Plotly.newPlot('myHistogram', data);
+		   var layout = {
+			xaxis: {title: 'Priser'}, 
+			yaxis: {title: 'Frekvens'}
+			};
+		  
+Plotly.newPlot('myHistogram', data, layout);
+
 /*Histogram of count accommodates*/
 var histogram2 = {
           x: accommodates,
-        
           type: 'histogram'};
-          var data = [histogram2];
-Plotly.newPlot('gĂ¤sterHistogram', data);
+          var data = [histogram2];	  
+		  var layout = {
+		  xaxis: {title: 'Rymmer'}, 
+          yaxis: {title: 'Frekvens'}
+		  };
+		  
+Plotly.newPlot('gĂ¤sterHistogram', data, layout);
 /* Pie chart of room_type*/
 var data_pie = [{
    values: accommodates,
